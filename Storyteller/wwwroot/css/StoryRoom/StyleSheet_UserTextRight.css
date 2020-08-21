@@ -1,0 +1,38 @@
+﻿
+.user-text-right {
+/*    margin-bottom: 10px;*/
+}
+
+.u-text-right-area {
+    position: relative;
+}
+
+.u-text-right-input {
+    position: relative;
+    margin-left: calc(100% - 140px);
+    padding: 10px;
+    background-color: #D0C4D2;
+    width: 200px;
+    text-align: left;
+    font: 'Noto Sans TC', sans-serif;
+    border-radius: 10px;
+}
+
+.u-text-right-input::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-bottom: 15px solid #D0C4D2;
+    border-left: 15px solid transparent;
+    border-right: 15px solid transparent;
+    bottom: 0;
+    right: -15px;
+}
+
+.u-text-right-input > p {
+    padding: 0;
+    margin: 0;
+    text-align: center;
+    padding: 0px 0px 5px 0px;
+}

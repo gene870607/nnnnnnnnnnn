@@ -1,0 +1,51 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>@ViewData["Title"] - Storyteller</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <!-- Link Swiper's CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.css">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+    <link rel="stylesheet" href="~/css/site.css" />
+
+    <!-- production version, optimized for size and speed -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.11"></script>
+
+    <style>
+        :root {
+            --btnPurple: #CEADC2;
+            --bgGray: #D0C4D2;
+            --mainColor: #70CDB8;
+            --txtBg: #64C6C7;
+        }
+    </style>
+    @RenderSection("topCSS", required: false)
+    @RenderSection("topJS", required: false)
+</head>
+<body>
+
+    <div class="parent">
+        <main class="RenderBodyBox w-100">
+            @RenderBody()
+        </main>
+    </div>
+
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    <!-- Optional JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <!-- FontAwesome -->
+    <script src="https://kit.fontawesome.com/83fb5d23dd.js" crossorigin="anonymous"></script>
+    <script src="https://beangochat.blob.core.windows.net/beango-static-prod/sdk/vconsole.min.js"></script>
+    <script>VConsole = new VConsole;</script>
+    @RenderSection("Scripts", required: false)
+    @RenderSection("endJs", required: false)
+
+</body>
+</html>

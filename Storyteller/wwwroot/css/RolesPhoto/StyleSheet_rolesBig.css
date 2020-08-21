@@ -1,0 +1,66 @@
+﻿#rolesBigC,
+#rolesBig {
+    width: 320px;
+    height: 320px;
+    border-radius: 50%;
+    text-align: center;
+    box-sizing: border-box;
+    transform: matrix(-1, 0, 0, 1, 0, 0);
+    position: relative;
+}
+
+    #rolesBigC img,
+    #rolesBig img {
+        border-radius: 50%;
+        border: 10px solid var(--bgGray);
+        box-sizing: border-box;
+        z-index: -1;
+        position: relative;
+        border-style: double;
+    }
+
+    .girl {
+        display:none;
+    }
+
+
+
+
+#rolesBig::before {
+    content: '';
+    width: 50px;
+    height: 50px;
+    background: var(--btnPurple);
+    border: 3px solid var(--bgGray);
+    box-sizing: border-box;
+    border-radius: 50%;
+    transform: matrix(-1, 0, 0, 1, 0, 0);
+    position: absolute;
+    top: 125px;
+    left: -25px;
+    z-index: 1
+}
+
+    #rolesBig::after {
+        content: '';
+        width: 50px;
+        height: 50px;
+        background: var(--btnPurple);
+        border: 3px solid var(--bgGray);
+        box-sizing: border-box;
+        border-radius: 50%;
+        transform: matrix(-1, 0, 0, 1, 0, 0);
+        position: absolute;
+        top: 125px;
+        left: 294px;
+        z-index: 1
+    }
+
+@media screen and (min-width: 375px) and (max-width: 375px) {
+    #rolesBig::after {
+        left: 260px;
+    }
+}
+
+
+

@@ -1,0 +1,216 @@
+﻿.story-choose-input {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin: 20px 0;
+}
+
+/*.story-choose-border {
+    width: 400px;*/
+    /* height: 250px; */
+    /*border: 2px solid #CEADC2;
+    margin: 10px 0;
+    border-top: none;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    padding: 0 5px 10px 5px;
+    box-sizing: border-box;
+}*/
+
+.s-c-c-cricle-mysvg {
+    transform: rotate(-90deg);
+    background-color: white;
+    border: 2px solid #CEADC2;
+    border-radius: 50%;
+}
+
+.s-c-c-cricle-mysvg > circle {
+    stroke-dasharray: 125.6;
+    stroke-dashoffset: 125.6;
+    animation: circle-draw 20s linear infinite;
+}
+
+.s-choose-title {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.s-c-title-img {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px 0;
+}
+
+.s-c-title-text > p {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 15px;
+    line-height: 18px;
+    text-align: center;
+    letter-spacing: 2.66667px;
+    color: #393939;
+}
+
+.s-c-title-text > h3 {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 25px;
+    line-height: 18px;
+    letter-spacing: 2.66667px;
+    color: #B2B2B2;
+    cursor: default;
+}
+
+.s-choose-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+/*    margin-bottom: 50px;*/
+}
+
+.s-c-btn-yes, .s-c-btn-no {
+    cursor: pointer;
+    border: 2px solid #CEADC2;
+    width: 400px;
+    /* height: 50px; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 5px 2px 2px rgba(0, 0, 0, 0.25);
+    margin: 5px 0;
+    position: relative;
+    padding: 5px 5px 5px 50px;
+    box-sizing: border-box;
+}
+
+.s-c-b-yes-img, .s-c-b-no-img {
+    width: 55px;
+    height: 55px;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: -20px;
+    left: 0;
+}
+
+.s-c-b-yes-img > img, .s-c-b-no-img > img {
+    max-width: 55px;
+    max-height: 55px;
+}
+
+.s-c-b-yes-text > h3, .s-c-b-no-text > h3 {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 22px;
+    text-align: center;
+    letter-spacing: 7px;
+    color: #6ECACA;
+}
+
+@keyframes circle-draw {
+    0% {
+        stroke: var(--mainColor);
+    }
+
+    25% {
+        stroke: var(--mainColor);
+    }
+
+    75% {
+        stroke: var(--mainColor);
+    }
+
+    100% {
+        stroke-dashoffset: 0;
+        stroke: #ff0000;
+    }
+}
+
+@media screen and (min-width: 320px) and (max-width: 375px) {
+    .s-c-title-text > p {
+        font-size: 14px;
+    }
+
+    .s-c-title-text > h3 {
+        font-size: 16px;
+    }
+
+    .s-c-btn-yes, .s-c-btn-no {
+        width: 250px;
+    }
+}
+
+@media screen and (min-width: 375px) and (max-width: 414px){
+    .s-c-title-text > h3 {
+        font-size: 18px;
+    }
+
+    .s-c-btn-yes, .s-c-btn-no {
+        width: 300px;
+    }
+}
+
+@media screen and (min-width: 414px) and (max-width: 768px){
+    .s-c-title-text > p {
+        font-size: 18px;
+    }
+
+    .s-c-title-text > h3 {
+        font-size: 20px;
+    }
+
+    .s-c-btn-yes, .s-c-btn-no {
+        width: 300px;
+    }
+
+    .story-choose-border {
+        width: 350px;
+    }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1024px){
+    .s-c-title-text > p {
+        font-size: 16px;
+    }
+
+    .s-c-title-text > h3 {
+        font-size: 18px;
+    }
+
+    .story-choose-border {
+        width: 350px;
+        height: 300px;
+    }
+
+    .s-c-btn-yes, .s-c-btn-no {
+        width: 300px;
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    .s-c-title-text > p {
+        font-size: 16px;
+    }
+
+    .s-c-title-text > h3 {
+        font-size: 18px;
+    }
+
+    .story-choose-border {
+        width: 350px;
+        height: 300px;
+    }
+
+    .s-c-btn-yes, .s-c-btn-no {
+        width: 300px;
+    }
+}

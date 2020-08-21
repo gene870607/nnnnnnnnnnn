@@ -1,0 +1,23 @@
+﻿<footer class="container-fluid containerfooter" id="inputFooter">
+    <div class="row">
+        <div class="col inputBox">
+            <div class="pic-roles" :value="items.roles" id="pic-roles">
+                <img v-bind:src="items.rolesImg" class="b-block h-100">
+            </div>
+            <div class="btn-box">
+                <div class="btn-icon">
+                    <i class="fas fa-gift"></i>
+                </div>
+            </div>
+            <div class="input-txt">
+                <input v-if="items.section[sectionIndex].event"  id="msg" type="text" name="txtWarp" placeholder="在此輸入角色對白..." v-model="items.section[sectionIndex].chooseForTrue.input">
+                <input v-else id="msg" :value="items.section[sectionIndex].event" type="text" name="txtWarp" placeholder="在此輸入角色對白..." v-model="items.section[sectionIndex].chooseForFalse.input">
+            </div>
+            <div class="btn-send">
+                <div class="btn-icon" v-on:click="ChooseResul">
+                    <i class="fas fa-paper-plane"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>

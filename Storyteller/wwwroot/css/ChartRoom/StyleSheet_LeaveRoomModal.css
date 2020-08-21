@@ -1,0 +1,73 @@
+﻿.leaveroom-modal {
+    top: 150px;
+}
+
+.leaveRoom-content {
+    background: rgba(255, 255, 255, 0.8);
+}
+
+.leaveRoom-body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 49px 53px;
+    border-bottom: 1px solid black;
+}
+
+.leaveRoom-body > p {
+    margin-bottom: 0;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 21px;
+    color: #000000;
+}
+
+.leave-footer {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-around;
+    align-items: center;
+    position: relative;
+}
+
+.leave-footer-btnone::after {
+    position: absolute;
+    content: '';
+    height: 50px;
+    border: 1.2px solid #000000;
+    top: 1.5px;
+    left: 250px;
+}
+
+.leave-footer-btnone, .leave-footer-btntwo {
+    cursor: pointer;
+}
+
+.leave-footer-btnone > p, .leave-footer-btntwo > p {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 21px;
+    color: #000000;
+    margin-bottom: 0;
+}
+
+@media screen and (min-width: 375px) and (max-width: 414px) {
+    .leave-footer-btnone::after {
+        left: 175px;
+    }
+}
+
+@media screen and (min-width: 414px) and (max-width: 768px) {
+    .leave-footer-btnone::after {
+        left: 190px;
+    }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+    .leave-footer-btnone::after {
+        left: 246px;
+    }
+}

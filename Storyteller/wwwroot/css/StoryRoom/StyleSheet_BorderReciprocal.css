@@ -1,0 +1,121 @@
+﻿
+
+.reciprocal-border {
+    /*    height: 300px;*/
+    box-sizing: border-box;
+    position: relative;
+    background-color: none;
+    cursor: pointer;
+    padding: 0 10px 10px 10px;
+    /* border: 2px solid #D0C4D2; */
+    box-shadow: inset 0 0 0 2px #D0C4D2;
+    border-radius: 10px;
+    box-sizing: border-box;
+    margin: 10px 0;
+}
+
+.reciprocal-border::before {
+    position: absolute;
+    content: '';
+    top: -5px;
+    left: 200px;
+    width: 120px;
+    height: 10px;
+    background: white;
+}
+
+
+.line-topRight, .line-topLeft, .line-rightdown, .line-leftdown, .line-bottomright, .line-bottomleft {
+    position: absolute;
+    box-sizing: inherit;
+    width: 0;
+    height: 0;
+    border: 4px solid transparent;
+}
+
+.line-topRight {
+    left: 60%;
+}
+
+/* .myborder:hover > .line-topRight{
+    width:  40%;
+    border-top-color: white;
+    transition: width 1.9s ease-out;
+} */
+
+.line-topLeft {
+    right: 60%;
+}
+
+/* .myborder:hover > .line-topLeft {
+    width: 40%;
+    border-top-color: white;
+    transition: width 1.9s ease-out;
+} */
+
+.line-rightdown {
+    top: 0;
+    right: 0;
+}
+
+/* .myborder:hover > .line-rightdown {
+    height: 100%;
+    border-right-color: white;
+    transition: height 1.9s ease-out 2s, border-right-color 1s;
+} */
+
+.line-leftdown {
+    top: 0;
+    left: 0;
+}
+
+/* .myborder:hover > .line-leftdown {
+    height: 100%;
+    border-left-color: white;
+    transition: height 1.9s ease-out 2s, border-left-color 1s;
+} */
+
+.line-bottomright {
+    bottom: 0;
+    right: 0;
+}
+
+/* .myborder:hover > .line-bottomright {
+    width: 50%;
+    border-bottom-color: white;
+    transition: width 1.9s ease-out 3.9s, border-bottom-color 1s;
+} */
+
+.line-bottomleft {
+    bottom: 0;
+    left: 0;
+}
+
+/* .myborder:hover > .line-bottomleft {
+    width: 60%;
+    border-bottom-color: white;
+    transition: width 1.9s ease-out 3.9s, border-bottom-color 1s;
+} */
+
+.main-text {
+    margin: 10px;
+    text-align: center;
+}
+
+@media screen and (min-width: 375px) {
+    .reciprocal-border::before {
+        left: 110px;
+    }
+}
+
+@media screen and (min-width: 414px) {
+    .reciprocal-border::before {
+        left: 130px;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .reciprocal-border::before {
+        left: 210px;
+    }
+}

@@ -1,0 +1,211 @@
+{
+  "id": 2,
+  "roles": "雪野百香里",
+  "rolesImg": "https://i.imgur.com/q67z7jJ.jpg",
+  "mainText": "言葉之庭",
+  "section": [
+    {
+      "sectionIndex": 0,
+      "conversation": "五月的滂沱大雨筆直落下，妳在公園涼亭裡避雨",
+      "CGImg": "/img/StoryImg/giardinoparole.png",
+      "script": "涼亭外來了個年輕的小伙子，看起來要走進來避雨",
+      "choose": true,
+      "issue": "是否讓個位子給他？",
+      "event": true,
+      "chooseForTrue": {
+        "optionDesc": "起身走到涼亭的裡邊，挪出空位給少年並對他說：",
+        "inputFlag": true,
+        "inputText": "***",
+        "input": "",
+        "goToSectionIndex": {
+          "id": 1,
+          "sectionIndex": 1
+        }
+      },
+      "chooseForFalse": {
+        "optionDesc": "順勢把腳跨在椅子上佔滿空間，對著他說：",
+        "inputFlag": true,
+        "inputText": "",
+        "input": "",
+        "goToSectionIndex": {
+          "id": 1,
+          "sectionIndex": 2
+        }
+      }
+    },
+    {
+      "sectionIndex": 1,
+      "conversation": "男孩帶著朝氣說：",
+      "CGImg": "/img/StoryImg/2020170422.png",
+      "script": "說完後就地坐在涼亭的一旁。看著男孩從包包裡拿出筆記本。四周可聽見歡悅鳴啼的清脆鳥囀、伴著敲打屋頂的雨聲和屋簷上滑落的雨滴，以及鉛筆在筆記本上滑過的輕柔沙沙聲，少年從剛才就在筆記本上寫寫畫畫，沒有攤開教科書，大概不是在唸書吧？",
+      "choose": true,
+      "issue": "問問看畫什麼？",
+      "event": true,
+      "chooseForTrue": {
+        "optionDesc": "我來問問：",
+        "inputFlag": true,
+        "inputText": "",
+        "input": "",
+        "goToSectionIndex": {
+          "id": 1,
+          "sectionIndex": 3
+        }
+      },
+      "chooseForFalse": {
+        "optionDesc": "臭宅男在那裝逼甚麼",
+        "inputFlag": false,
+        "inputText": "",
+        "input": "",
+        "goToSectionIndex": {
+          "id": 1,
+          "sectionIndex": 4
+        }
+      }
+    },
+    {
+      "sectionIndex": 2,
+      "conversation": "男子面有難色進入涼亭",
+      "CGImg": "#",
+      "script": "說完後就地坐在涼亭的一旁。看著男孩從包包裡拿出筆記本。四周可聽見歡悅鳴啼的清脆鳥囀、伴著敲打屋頂的雨聲和屋簷上滑落的雨滴，以及鉛筆在筆記本上滑過的輕柔沙沙聲，少年從剛才就在筆記本上寫寫畫畫，沒有攤開教科書，大概不是在唸書吧？",
+      "choose": true,
+      "issue": "問問看畫什麼？",
+      "event": true,
+      "chooseForTrue": {
+        "optionDesc": "我來問問：",
+        "inputFlag": true,
+        "inputText": "",
+        "input": "",
+        "goToSectionIndex": {
+          "id": 1,
+          "sectionIndex": 3
+        }
+      },
+      "chooseForFalse": {
+        "optionDesc": "臭宅男在那裝逼甚麼",
+        "inputFlag": false,
+        "inputText": "",
+        "input": "",
+        "goToSectionIndex": {
+          "id": 1,
+          "sectionIndex": 4
+        }
+      }
+    },
+    {
+      "sectionIndex": 3,
+      "conversation": "男孩解釋道，並且將手上的畫給妳看",
+      "CGImg": "/img/StoryImg/f_24481127_1.png",
+      "script": "突然，從男孩身上掉落某樣物品並彈到妳腳邊",
+      "choose": true,
+      "issue": "是否撿起並查看是甚麼東西？",
+      "event": true,
+      "chooseForTrue": {
+        "optionDesc": "幫他撿起並歸還",
+        "inputFlag": true,
+        "inputText": "",
+        "input": "",
+        "goToSectionIndex": {
+          "id": 1,
+          "sectionIndex": 5
+        }
+      },
+      "chooseForFalse": {
+        "optionDesc": "你發現那是十塊錢就默默踩住它",
+        "inputFlag": false,
+        "inputText": "***",
+        "input": "",
+        "goToSectionIndex": {
+          "id": 1,
+          "sectionIndex": 6
+        }
+      }
+    },
+    {
+      "sectionIndex": 4,
+      "conversation": "男孩開始上下打量妳",
+      "CGImg": "/img/StoryImg/f_24481127_1.png",
+      "script": "突然，從男孩身上掉落某樣物品並彈到妳腳邊",
+      "choose": true,
+      "issue": "是否撿起並查看是甚麼東西？",
+      "event": true,
+      "chooseForTrue": {
+        "optionDesc": "幫他撿起並歸還：",
+        "inputFlag": true,
+        "inputText": "",
+        "input": "",
+        "goToSectionIndex": {
+          "id": 1,
+          "sectionIndex": 5
+        }
+      },
+      "chooseForFalse": {
+        "optionDesc": "你發現那是十塊錢就默默踩住它",
+        "inputFlag": false,
+        "inputText": "***",
+        "input": "",
+        "goToSectionIndex": {
+          "id": 1,
+          "sectionIndex": 6
+        }
+      }
+    },
+    {
+      "sectionIndex": 5,
+      "conversation": "男孩留住了你",
+      "CGImg": "/img/StoryImg/f_24481127_1.png",
+      "script": "不久，雨停了...該離開了",
+      "choose": true,
+      "issue": "是否對男孩告別?",
+      "event": true,
+      "chooseForTrue": {
+        "optionDesc": "不捨離開男孩並說：",
+        "inputFlag": true,
+        "inputText": "帥勾再玩一下嘛",
+        "input": "",
+        "goToSectionIndex": {
+          "id": 1,
+          "sectionIndex": 99
+        }
+      },
+      "chooseForFalse": {
+        "optionDesc": "欸欸我的LineID是...",
+        "inputFlag": true,
+        "inputText": "***",
+        "input": "",
+        "goToSectionIndex": {
+          "id": 1,
+          "sectionIndex": 99
+        }
+      }
+    },
+    {
+      "sectionIndex": 99,
+      "conversation": "男孩沒有留住妳，而且叫你垃圾自己丟",
+      "CGImg": "/img/StoryImg/f_24481127_1.png",
+      "script": "不久，雨停了...女孩起身準備離開，此時吹起了一陣風，彷彿在接續他們的對話",
+      "choose": false,
+      "issue": "說再見...",
+      "event": true,
+      "chooseForTrue": {
+        "optionDesc": "我笑笑著揮手說：",
+        "inputFlag": true,
+        "inputText": "",
+        "input": "",
+        "goToSectionIndex": {
+          "id": 1,
+          "sectionIndex": 99
+        }
+      },
+      "chooseForFalse": {
+        "optionDesc": "算了",
+        "inputFlag": false,
+        "inputText": "***",
+        "input": "",
+        "goToSectionIndex": {
+          "id": 1,
+          "sectionIndex": 99
+        }
+      }
+    }
+  ]
+}

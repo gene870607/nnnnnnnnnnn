@@ -1,0 +1,240 @@
+{
+  "Id": 1,
+  "roles": "秋月孝雄",
+  "rolesImg": "https://i.imgur.com/gReCmaF.png",
+  "mainText": "言葉之庭",
+  "section": [
+    {
+      "sectionIndex": 0,
+      "conversation": "五月的滂沱大雨筆直落下，你看見公園內有個涼亭",
+      "CGImg": "/img/StoryImg/boy1.jpg",
+      "script": "涼亭裡坐著一位看著小說喝著酒的女孩，你正猶豫要不要進去避雨",
+      "choose": false,
+      "issue": "",
+      "event": true,
+      "chooseForTrue": {
+        "optionDesc": "",
+        "inputFlag": false,
+        "inputText": "",
+        "input": "",
+        "goToSectionIndex": {
+          "id": 2,
+          "sectionIndex": 1
+        }
+      },
+      "chooseForFalse": {
+        "optionDesc": "",
+        "inputFlag": false,
+        "inputText": "",
+        "input": "",
+        "goToSectionIndex": {
+          "id": 2,
+          "sectionIndex": 2
+        }
+      }
+    },
+    {
+      "sectionIndex": 1,
+      "conversation": "女孩禮貌地起身讓位給你並對你說：",
+      "CGImg": "/img/StoryImg/d2083162.jpg",
+      "script": "聽見問好後，抬頭看著女孩",
+      "choose": true,
+      "issue": "是否進入涼亭避雨？",
+      "event": true,
+      "chooseForTrue": {
+        "optionDesc": "帶著愉快的心情進入涼亭並問候：",
+        "inputFlag": true,
+        "inputText": "",
+        "input": "",
+        "goToSectionIndex": {
+          "id": 2,
+          "sectionIndex": 1
+        }
+      },
+      "chooseForFalse": {
+        "optionDesc": "面有難色進入並說道：",
+        "inputFlag": true,
+        "inputText": "",
+        "input": "...",
+        "goToSectionIndex": {
+          "id": 2,
+          "sectionIndex": 2
+        }
+      }
+    },
+    {
+      "sectionIndex": 2,
+      "conversation": "雖然不情願，但女孩還是讓了位給你並說道：",
+      "CGImg": "/img/StoryImg/f_24481127_1.png",
+      "script": "你傻眼並抬頭看著女孩",
+      "choose": true,
+      "issue": "是否進入涼亭避雨？",
+      "event": true,
+      "chooseForTrue": {
+        "optionDesc": "帶著愉快的心情進入涼亭並問候：",
+        "inputFlag": true,
+        "inputText": "",
+        "input": "",
+        "goToSectionIndex": {
+          "id": 2,
+          "sectionIndex": 1
+        }
+      },
+      "chooseForFalse": {
+        "optionDesc": "面有難色進入並說道：",
+        "inputFlag": true,
+        "inputText": "",
+        "input": "",
+        "goToSectionIndex": {
+          "id": 2,
+          "sectionIndex": 2
+        }
+      }
+    },
+    {
+      "sectionIndex": 3,
+      "conversation": "你進入涼亭坐下來畫畫，被女孩看見，女孩好奇的問道：",
+      "CGImg": "/img/StoryImg/73246_55.jpg",
+      "script": "停下筆來，抬頭看著女孩",
+      "choose": true,
+      "issue": "是否回應？",
+      "event": true,
+      "chooseForTrue": {
+        "optionDesc": "我把手裡的畫，給他看，並說：",
+        "inputFlag": true,
+        "inputText": "",
+        "input": "",
+        "goToSectionIndex": {
+          "id": 2,
+          "sectionIndex": 3
+        }
+      },
+      "chooseForFalse": {
+        "optionDesc": "想看可以，但要有代價妳懂的^_^，代價是：",
+        "inputFlag": true,
+        "inputText": "",
+        "input": "",
+        "goToSectionIndex": {
+          "id": 2,
+          "sectionIndex": 4
+        }
+      }
+    },
+    {
+      "sectionIndex": 4,
+      "conversation": "你進入涼亭坐下來畫畫，被女孩看見，女孩雖然看到你在裝逼，但他不理你，你也沒辦法",
+      "CGImg": "/img/StoryImg/73246_55.jpg",
+      "script": "你覺得這曠世巨作不被看到太可惜，於是你對女孩：",
+      "choose": true,
+      "issue": "做出甚麼動作？",
+      "event": true,
+      "chooseForTrue": {
+        "optionDesc": "我把手裡的畫，給他看，並說：",
+        "inputFlag": true,
+        "inputText": "",
+        "input": "",
+        "goToSectionIndex": {
+          "id": 2,
+          "sectionIndex": 3
+        }
+      },
+      "chooseForFalse": {
+        "optionDesc": "想看可以，但要有代價妳懂的^_^，代價是：",
+        "inputFlag": true,
+        "inputText": "",
+        "input": "",
+        "goToSectionIndex": {
+          "id": 2,
+          "sectionIndex": 4
+        }
+      }
+    },
+    {
+      "sectionIndex": 5,
+      "conversation": "你的東西不小心掉了，女孩幫你撿起掉落物品，你很感謝",
+      "CGImg": "/img/StoryImg/73246_55.jpg",
+      "script": "雨停了，女孩作勢要離開",
+      "choose": true,
+      "issue": "起身回應？",
+      "event": true,
+      "chooseForTrue": {
+        "optionDesc": "留住她",
+        "inputFlag": true,
+        "inputText": "『雪野，希望還能見到妳』",
+        "input": "",
+        "goToSectionIndex": {
+          "id": 2,
+          "sectionIndex": 5
+        }
+      },
+      "chooseForFalse": {
+        "optionDesc": "叫住女孩並提醒她垃圾自己處理",
+        "inputFlag": true,
+        "inputText": "",
+        "input": "",
+        "goToSectionIndex": {
+          "id": 2,
+          "sectionIndex": 99
+        }
+      }
+    },
+    {
+      "sectionIndex": 6,
+      "conversation": "你的十元不小心掉了，女孩默默踩在腳下並直接把你的十元幹走了",
+      "CGImg": "/img/StoryImg/73246_55.jpg",
+      "script": "雨停了，女孩作勢要離開",
+      "choose": true,
+      "issue": "起身回應？",
+      "event": true,
+      "chooseForTrue": {
+        "optionDesc": "留住她並說：",
+        "inputFlag": true,
+        "inputText": "『雪野，希望還能見到妳』",
+        "input": "",
+        "goToSectionIndex": {
+          "id": 2,
+          "sectionIndex": 99
+        }
+      },
+      "chooseForFalse": {
+        "optionDesc": "雖然機會渺茫但你試圖挽回女孩腳下的十元並說：",
+        "inputFlag": true,
+        "inputText": "(幹那是我的十塊)",
+        "input": "",
+        "goToSectionIndex": {
+          "id": 2,
+          "sectionIndex": 99
+        }
+      }
+    },
+    {
+      "sectionIndex": 99,
+      "conversation": "結束",
+      "CGImg": "/img/StoryImg/73246_55.jpg",
+      "script": "結束",
+      "choose": false,
+      "issue": "起身回應？",
+      "event": true,
+      "chooseForTrue": {
+        "optionDesc": "留住她並說：",
+        "inputFlag": true,
+        "inputText": "『雪野，希望還能見到妳』",
+        "input": "",
+        "goToSectionIndex": {
+          "id": 2,
+          "sectionIndex": 99
+        }
+      },
+      "chooseForFalse": {
+        "optionDesc": "結束",
+        "inputFlag": true,
+        "inputText": "(幹那是我的十塊)",
+        "input": "",
+        "goToSectionIndex": {
+          "id": 2,
+          "sectionIndex": 99
+        }
+      }
+    }
+  ]
+}

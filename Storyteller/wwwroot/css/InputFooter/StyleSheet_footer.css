@@ -1,0 +1,63 @@
+﻿#inputFooter {
+/*    position: absolute;*/
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+.inputBox {
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    height: 56px;
+    background: linear-gradient(180deg, #64C6C7 0%, rgba(255, 255, 255, 0) 100%), var(--mainColor);
+}
+
+    .inputBox .pic-roles {
+        position: absolute;
+        width: 50px;
+        height: 50px;
+        left: 1.066666666666%;
+        top: 3px;
+        border: 1px solid #ffffff;
+        box-sizing: border-box;
+        border-radius: 50%;
+        overflow: hidden;
+    }
+
+    .inputBox .btn-box {
+        position: absolute;
+/*      background-color: var(--bgGray);
+        height: 25px;
+        width: 23px;*/
+        left: 15.466666666666%;
+        top: 10px;
+/*        border: 1px solid #ffffff;*/
+        box-sizing: border-box;
+    }
+        .inputBox .btn-icon {
+            font-size: 25px;
+            text-align: center;
+            color: #FFF;
+        }
+
+        .inputBox .input-txt input {
+            position: absolute;
+            width: 68.5333333333%;
+            height: 38px;
+            left: 23.2%;
+            top: 9px;
+            background: #FFFFFF;
+            border-radius: 16.5px;
+            border: none;
+        }
+
+    .inputBox .btn-send {
+        position: absolute;
+/*      width: 23px;
+        height: 29px;*/
+        left: 92.8%;
+        top: 10px;
+/*        background: #FFFFFF;
+        border: 1px solid #FFFFFF;*/
+    }

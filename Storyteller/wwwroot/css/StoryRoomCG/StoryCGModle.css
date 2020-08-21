@@ -1,0 +1,12 @@
+﻿.CGImg {
+    margin: auto;
+    text-align: center;
+    vertical-align: middle;
+    max-height: 219px;
+    max-width:327px;
+}
+
+.CGImg img {
+    border: 5px solid #D0C4D2;
+    border-radius: 15px;
+}

@@ -1,0 +1,63 @@
+﻿#categoryName h5 {
+    font-size: 34px;
+    color: #70CDB8;
+    text-align: center;
+}
+
+#scriptDescription h5 {
+    font-family: '微軟正黑體', 'arial black', sans-serif;
+    color: white;
+    text-align: center;
+    margin: 5px 5px 5px 5px;
+    font-size: 24px;
+    border-radius: 10px;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+}
+
+/* script */
+
+#script .swiper-container {
+    width: 100%;
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+
+#script .swiper-slide {
+    background-position: center;
+    background-size: cover;
+    width: 300px;
+    height: 500px;
+    /*    background: #DBDBDB;*/
+    text-align: center;
+}
+
+#script .swiper-pagination-bullet {
+    width: 27px;
+    height: 4px;
+    border-radius: 5px;
+    background-color: #70CDB8;
+}
+
+#script img {
+    width: 300px;
+/*    height: 200px;*/
+    border-radius: 10px;
+}
+
+#script .sp {
+    position: absolute;
+    top: 45%;
+    left: 0;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.4);
+    width: 300px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: larger;
+}
+
+#script #scriptDescription {
+    margin-top: 45px;
+}

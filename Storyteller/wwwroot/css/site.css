@@ -1,0 +1,35 @@
+﻿* {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-family: 'Noto Sans TC', sans-serif;
+}
+
+.parent {
+  display: flex;
+  justify-content:center;
+/*  place-items: center;*/
+}
+
+
+.containerheader {
+    margin-bottom: 2%;
+    max-width: 576px !important;
+}
+
+.containerfooter {
+    max-width: 576px !important;
+}
+.container {
+    margin-bottom: 5%;
+    max-width: 576px !important;
+}
+
+
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+  position: relative;
+  min-height: 100%;
+}
+

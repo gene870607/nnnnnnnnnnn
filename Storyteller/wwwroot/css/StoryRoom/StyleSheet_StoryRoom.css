@@ -1,0 +1,391 @@
+.pic-cg {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin: 0px 24px;
+    /*    margin: 36px 24px;*/
+}
+
+.story-area {
+    text-align: center;
+    height: 300px;
+    padding: 5px 0;
+    margin-bottom: 100px;
+}
+
+.s-area-title > h5 {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 18px;
+    text-align: center;
+    letter-spacing: 2.66667px;
+    color: #393939;
+}
+
+.s-area-title > p {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 18px;
+    text-align: center;
+    letter-spacing: 2.66667px;
+    color: #393939;
+}
+/*    .story-area > h2 {
+        margin-bottom: 20px;
+    }*/
+#history::-webkit-scrollbar {
+    width: 7px;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+#history::-webkit-scrollbar-thumb {
+    background-color: #E3E3E3;
+    border-radius: 5px;
+}
+
+#history::-webkit-scrollbar-thumb:hover {
+    background-color: lightgray;
+}
+
+#history {
+    max-height: 300px;
+    overflow: auto;
+}
+}
+
+#inputArea {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+    #inputArea .img-option {
+        width: 80px;
+        height: 80px;
+    }
+
+@media screen and (min-width: 375px) and (max-width: 414px) {
+    .s-area-title > h5, .s-area-title > p {
+        font-size: 15px;
+    }
+}
+
+@media screen and (min-width: 414px) and (max-width: 768px) {
+    .s-area-title > h5, .s-area-title > p {
+        font-size: 18px;
+    }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+    .s-area-title > h5, .s-area-title > p {
+        font-size: 20px;
+    }
+}
+
+
+
+/*對話框樣式*/
+.user-text-right {
+    display: flex;
+    justify-content: flex-end;
+    padding: 0 20px 0 0;
+    position: relative;
+
+}
+
+    .user-text-right .beliked {
+        margin-top: auto;
+        padding: 0 0 10px 0;
+        background: var(--bgGary);
+        order: -1;
+        font-size: 15px;
+        color: #fff;
+    }
+
+        .user-text-right .beliked .belikedBg {
+            background: var(--mainColor);
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            position: relative;
+            left: 10px;
+            box-sizing: border-box;
+        }
+
+.user-text-right .rolesName {
+    position: absolute;
+    z-index: 2;
+    top: -30%;
+    right: 27%;
+    color: var(--bgGray);
+}
+
+.user-text-left {
+    display: flex;
+    justify-content: flex-start;
+    padding: 0 0 0 20px;
+    position: relative;
+}
+    .user-text-left .like {
+        margin-top: auto;
+        margin-right: auto;
+        padding: 0 0 10px 0;
+        font-size: 15px;
+        color: #fff;
+    }
+        
+        .user-text-left .like .likeBg{
+            background: var(--bgGray);
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            position: relative;
+            right: 10px;
+            box-sizing:border-box;
+        }
+
+.user-text-left .rolesName {
+    position: absolute;
+    z-index: 2;
+    top: -30%;
+    left: 27%;
+    color: var(--bgGray);
+}
+
+@media screen and (min-width: 374px) {
+    .user-text-right .rolesName {
+        position: absolute;
+        z-index: 2;
+        top: -30%;
+        right: 22%;
+        color: var(--bgGray);
+    }
+
+    .user-text-left .rolesName {
+        position: absolute;
+        z-index: 2;
+        top: -30%;
+        left: 22%;
+        color: var(--bgGray);
+    }
+}
+
+@media screen and (min-width: 440px) {
+    .user-text-right .rolesName {
+        position: absolute;
+        z-index: 2;
+        top: -30%;
+        right: 18%;
+        color: var(--bgGray);
+    }
+
+    .user-text-left .rolesName {
+        position: absolute;
+        z-index: 2;
+        top: -30%;
+        left: 18%;
+        color: var(--bgGray);
+    }
+}
+
+@media screen and (min-width: 576px) {
+    .user-text-right .rolesName {
+        position: absolute;
+        z-index: 2;
+        top: -30%;
+        right: 14%;
+        color: var(--bgGray);
+    }
+
+    .user-text-left .rolesName {
+        position: absolute;
+        z-index: 2;
+        top: -30%;
+        left: 14%;
+        color: var(--bgGray);
+    }
+}
+
+.user-text-right p::after {
+    content: '';
+    width: 0;
+    height: 0;
+    border-right: 15px solid transparent;
+    border-bottom: 10px solid var(--bgGray);
+    position: absolute;
+    left: 100%;
+    bottom: 0;
+}
+
+.user-text-right p {
+    font-size: 20px;
+    padding: 10px;
+    margin-right: 10px;
+    border-radius: 10px 10px 0px 10px;
+    background-color: var(--bgGray);
+    position: relative;
+}
+
+.user-text-left p {
+    font-size: 20px;
+    padding: 10px;
+    margin-left: 10px;
+    border-radius: 10px 10px 10px 0;
+    background-color: var(--mainColor);
+    position: relative;
+}
+
+    .user-text-left p::after {
+        content: '';
+        width: 0;
+        height: 0;
+        border-left: 15px solid transparent;
+        border-bottom: 10px solid var(--mainColor);
+        position: absolute;
+        left: -10px;
+        bottom: 0px;
+    }
+
+
+
+.user-text-left .imguser {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    box-sizing: border-box;
+    overflow: hidden;
+    position: relative;
+    z-index: 1;
+}
+
+.user-text-right .imguser {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    box-sizing: border-box;
+    overflow: hidden;
+    position: relative;
+    z-index: 1;
+}
+
+.user-text-left .imguser::after {
+    content: '';
+    width: 46px;
+    height: 46px;
+    border-radius: 50%;
+    border: 1px solid #fff;
+    position: absolute;
+    top: 2px;
+    left: 2px;
+}
+
+.user-text-right .imguser::after {
+    content: '';
+    width: 46px;
+    height: 46px;
+    border-radius: 50%;
+    border: 1px solid #fff;
+    position: absolute;
+    top: 2px;
+    left: 2px;
+}
+
+
+
+/*對話框樣式*/
+
+
+
+
+.stroke {
+    width: 125px;
+    height: 2px;
+    position: absolute;
+    bottom: 5%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+
+    .stroke::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border-top: 2px solid #D0C4D2;
+        animation: pencilel 5s linear infinite;
+    }
+
+    .stroke::after {
+        content: '\f303';
+        font-family: fontAwesome;
+        position: absolute;
+        top: -50px;
+        left: 100%;
+        width: 100%;
+        height: 100%;
+        animation: pencile 5s linear infinite;
+        color: #70CDB8;
+        font-size: 40px;
+    }
+
+@keyframes pencilel {
+    0% {
+        width: 0%
+    }
+
+    50% {
+        width: 100%;
+    }
+
+    100% {
+        width: 0%
+    }
+}
+
+
+@keyframes pencile {
+    0% {
+        left: 0%
+    }
+
+    50% {
+        left: 100%
+    }
+
+    100% {
+        left: 0%
+    }
+}
+
+
+.textAnimation {
+    display:block;
+    z-index: 1;
+    overflow: hidden;
+}
+
+.textAnimation::before {
+    content: '';
+    position: absolute;
+    left: 0%;
+    width: 100%;
+    height: 35%;
+    background: linear-gradient(90deg,transparent 0%,#fff 5%, #fff 100%);
+    animation: Textanimation 5s linear forwards;
+}
+@keyframes Textanimation {
+    0% {
+        left: -20%;
+    }
+
+    100% {
+        left: 100%;
+    }
+}

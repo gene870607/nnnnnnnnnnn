@@ -1,0 +1,231 @@
+﻿
+<header class="container-fluid containerheader">
+    <div class="row">
+        <div class="col-md-12 herderBox">
+            <div id="Go_Back" class="btn-left">
+                <i class="fas fa-angle-left"></i>
+            </div>
+            <div id="Title_Name" class="txt-title">{{items.title}}</div>
+            <div class="btn-right">
+                <i class="fas fa-cog"></i>
+            </div>
+        </div>
+    </div>
+</header>
+<section class="container" id="rolesDataChoose">
+    <div class="row roleData">
+        <div class="col my-2">
+            <div class="text-center" id="rolesChoose">
+                <div class="btn-choose border-0" id="prev" type="button" onclick="ChangeRole('-1')">
+                    <i class="fas fa-chevron-left"></i>
+                </div>
+
+                <div class="pic-role mx-auto">
+                    <img v-bind:src="items.CharacterImage" alt="Alternate Text" class="d-block h-100" />
+                </div>
+
+                <div class="btn-choose border-0" id="next" type="button" onclick="ChangeRole('+1')">
+                    <i class="fas fa-chevron-right"></i>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="row" id="pic-success" style="display: none;">
+        <div class="col-6 my-2">
+            <div id="rolesChoose">
+                <div class="pic-role ml-auto mappingRole">
+                    <img v-bind:src="items.CharacterImage" alt="Alternate Text" class="d-block h-100" />
+                </div>
+            </div>
+        </div>
+        <div class="col-6 my-2">
+            <div id="rolesChoose">
+                <div class="pic-role mr-auto mappingRole">
+                    <img src="#" alt="Alternate Text" class="d-block h-100" id="otherRoleimg" />
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row roleData">
+        <div v-if="!items.Choose" class="col my-5">
+            <div class="rolesInfo">
+                <div class="rolesName">
+                    <h3>{{items.CharacterName}}</h3>
+                </div>
+                <div class="rolesDesc">
+                    <p>{{items.CharacterIntroduction}}</p>
+                </div>
+            </div>
+        </div>
+        <div v-else class="col my-2 text-center">
+            <div class="pair-warp">
+                <div class="wavy">
+                    <span style="--i:1;">配</span>
+                    <span style="--i:2;">對</span>
+                    <span style="--i:4;">搜</span>
+                    <span style="--i:3;">索</span>
+                    <span style="--i:5;">中</span>
+                    <span style="--i:6;">.</span>
+                    <span style="--i:7;">.</span>
+                    <span style="--i:8;">.</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row" style="display: none;" id="text-success">
+        <div class="col my-2 text-center">
+            <div class="pair-success">
+                <div class="success">
+                    <span>配</span>
+                    <span>對</span>
+                    <span>成</span>
+                    <span>功</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row btn-row">
+        <div class="col mt-5 d-flex justify-content-center">
+            <div class="btn-div">
+                <button type="button" id="btn-pair" @@click="Gopair">確認</button>
+            </div>
+        </div>
+    </div>
+</section>
+
+@section topCSS{
+    <link href="~/css/Hearder/StyleSheet_hearder.css" rel="stylesheet" />
+    <link href="~/css/UserPairing/StyleSheet_UserPairing.css" rel="stylesheet" />
+}
+
+@section endJS{
+    <script src="~/js/signalr/dist/browser/signalr.js"></script>
+    <script>
+        var otherUser = [];
+        let role = '';
+        let imgR = '';
+        let tickTime = 0;
+        var connection;
+        var waittingTimes;
+        var vm, hearderVm;
+
+
+        var rolesData = @Html.Raw(ViewBag.ScriptJsonString);
+
+
+        $(document).ready(function () {
+            Binding();
+
+            @* 畫面ready好後開始連線至hub *@
+            connection = new signalR.HubConnectionBuilder().withUrl("/RoomHub").build();
+            connection.start().then(function () {
+                console.log('SignalR connection succeeded');
+
+            }).catch(function (err) {
+                return console.error(err.toString());
+            });
+
+            connection.on("CreateRole", function (roleListe) {
+                console.log('有一位玩家加入配對');
+                otherUser.push(JSON.parse(roleListe));
+                console.log(roleListe);
+
+            });
+
+            connection.on("RemoveRole", function (roleListe) {
+                console.log('有一位玩家離開配對');
+                otherUser.push(JSON.parse(roleListe));
+                console.log(roleListe);
+            });
+
+            connection.on("Leave", function (connectionId) {
+                console.log(`${connectionId}玩家離開連線`);
+            });
+
+            connection.on("PairingSuccess", function (roleValue,img,roomid) {
+                console.log('PairingSuccess ok')
+                localStorage.setItem('data', roleValue);
+                localStorage.setItem(roleValue, rolesData[0].ScriptName);
+                $('#otherRoleimg').attr('src', img);
+                $('.roleData').hide();
+                $('.btn-row').hide();
+                $('#pic-success').show();
+                $('#text-success').show();
+                setTimeout(function () {
+                    document.location.href = `/GameRoom/StoryRoom/${roomid}`;
+                }, 3000);
+            });
+        });
+
+        function UpdateRoomData(role, imgR) {
+            console.log('Pairing go')
+            connection.invoke("Pairing", role, imgR).catch(function (err) {
+                return console.error(err.toString());
+            });
+
+            tickTime++;
+            if (tickTime > 5) {
+                clearInterval(waittingTimes);
+                alert('沒有相對的角色');
+            }
+        }
+
+        function Binding() {
+            vm = new Vue({
+                el: '#rolesDataChoose',
+                data: { items: rolesData[0] },
+                methods: {
+                    Gopair: function () {
+                        @* 按下確認 *@
+                        imgR = vm.$data.items.CharacterImage;
+                        role = vm.$data.items.CharacterName;
+
+                        vm.$data.items.Choose = !vm.$data.items.Choose;
+                        if (vm.$data.items.Choose) {
+                            $('#btn-pair').css("background", "var(--bgGray)").text("取消");
+                            $('.btn-choose').hide();
+                            connection.invoke("CreateRole", role, imgR).catch(function (err) {
+                                return console.error(err.toString());
+                            });
+
+                            waittingTimes = setInterval(function () { UpdateRoomData(role, imgR) }, 3000);
+                        }
+                        else {
+                            clearInterval(waittingTimes);
+                            $('#btn-pair').css("background", "var(--mainColor)").text("確認");
+                            $('.btn-choose').show();
+                            connection.invoke("RemoveRole").catch(function (err) {
+                                return console.error(err.toString());
+                            });//要移除自己
+
+                        }
+                    }
+                }
+            });
+
+            hearderVm = new Vue({
+                el: '#Title_Name',
+                data: { items: { "title": rolesData[0].ScriptName } }
+            })
+        }
+
+        function GetCurrentBindingData() {
+            return vm.$data.items;
+        }
+        function ShowData(data) {
+            vm.$data.items = data;
+        }
+        function ChangeRole(no) {
+            var tmp = GetCurrentBindingData();
+            var i = rolesData.indexOf(tmp);
+            var _index = eval(i + no);
+            if (_index >= 0 && _index <= (rolesData.length - 1)) {
+                ShowData(rolesData[_index]);
+            }
+        }
+    </script>
+}

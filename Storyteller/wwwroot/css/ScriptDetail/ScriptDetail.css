@@ -1,0 +1,38 @@
+﻿#scriptImg .col {
+    text-align: center;
+}
+
+#scriptImg img {
+    width: 258px;
+    height: 344px;
+    border-radius: 10px;
+}
+
+#categoryName h5 {
+    font-size: 34px;
+    color: #70CDB8;
+    text-align: center;
+}
+
+#scriptDescription .col {
+    text-align: center;
+}
+
+#scriptDescription h5 {
+    font-family: '微軟正黑體', 'arial black', sans-serif;
+    color: white;
+    text-align: center;
+    margin: 5px 5px 5px 5px;
+    font-size: 24px;
+    border-radius: 10px;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+}
+
+#scriptDescription button {
+    text-align: center;
+    border-radius: 27px;
+    background-color: #70CDB8;
+    color: white;
+    border: 2px solid;
+    padding: 10px;
+}

@@ -1,0 +1,21 @@
+﻿.outherOneLeave-modal {
+    top: 150px;
+}
+
+.outherOneLeave-content {
+    background: rgba(255, 255, 255, 0.8);
+}
+
+.outherOneLeave-body {
+    padding: 59px 62px;
+}
+
+.outherOneLeave-body > p {
+    margin-bottom: 0;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 21px;
+    text-align: center;
+    color: #000000;
+}

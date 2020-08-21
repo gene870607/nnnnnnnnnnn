@@ -1,0 +1,75 @@
+﻿@model IEnumerable<Storyteller.ViewModels.ScriptViewModel>
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+@section topCSS{
+    <link href="~/css/HomePage.css" rel="stylesheet" />
+    <link href="~/css/Hearder/StyleSheet_hearder.css" rel="stylesheet" />
+    <link href="~/css/ScriptDetail/ScriptDetail.css" rel="stylesheet" />
+}
+<partial name="_HearderPartial" />
+
+<div class="container" id="scriptImg">
+    <div class="row">
+        <div class="col">
+            @foreach (var item in Model)
+            {
+                <img src="@item.ScriptUrl" alt="Alternate Text" />
+            }
+        </div>
+    </div>
+</div>
+
+<div class="container" id="scriptDescription">
+    <div class="row">
+        <div class="col">
+            @foreach (var item in Model)
+            {
+                <h5>@item.ScriptName</h5>
+                <h5>玩家人數：@item.ScriptMaxPlayer</h5>
+                <h5>所需時間：@item.ScriptDuration</h5>
+                <h5>@item.ScriptIntroduction</h5>
+            }
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            @foreach (var item in Model)
+            {
+                <button class="GoToPlay" id="@item.ScriptId" onclick="LinkToPairing(@item.ScriptId)">玩這本書！</button>
+            }
+        </div>
+    </div>
+</div>
+
+@section endJS{
+    <script src="~/js/ScriptDetail/ScriptDetail.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="https://beangostg.blob.core.windows.net/beango-static-stg/sdk/beango_stg.min.js"></script>
+    <script src="~/js/BeanfunSDK/BeanfunSDK.js"></script>
+    <script src="https://beangochat.blob.core.windows.net/beango-static-prod/sdk/vconsole.min.js"></script>
+    <script>VConsole = new VConsole;</script>
+    <script>
+
+        var PlayBtn = document.getElementsByClassName('GoToPlay')[0];
+
+        PlayBtn.onclick = function () {
+            var id = this.id;
+            $.ajax({
+                url: "/GameRoom/UserPairing/" + id,
+                type: "POST",
+                data: {
+                    ScriptID: id
+                },
+                dataType: "text",
+                success: function (jdata) {
+                    window.location.href = "https://testtestqwe.azurewebsites.net/GameRoom/UserPairing/" + id;
+                },
+                error: function () {
+                }
+            })
+        }
+    </script>
+}

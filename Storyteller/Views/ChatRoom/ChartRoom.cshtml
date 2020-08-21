@@ -1,0 +1,114 @@
+﻿
+@{
+    ViewData["Title"] = "ChartRoom";
+}
+
+<header class="container-fluid containerheader chart-header">
+    <div class="row">
+        <div class="col-md-12 chart-title">
+            <div class="c-title-icon">
+                <i onclick="leaveRoom()" class="fas fa-sign-out-alt"></i>
+            </div>
+        </div>
+    </div>
+</header>
+
+<section class="container chart-body">
+    <div class="row">
+        <div class="col chart-body-input">
+            <div class="c-b-input-info">
+                <div class="c-b-info-img">
+                    <img src="~/img/StoryRoom_UserText/pngtree-meng-pet-cute-puppy-png-image_1845456.jpg" />
+                </div>
+                <div class="c-b-info-text">
+                    <div class="c-b-i-text-name">
+                        <h3>張雲雷</h3>
+                        <button>查看故事結局</button>
+                    </div>
+                    <div class="c-b-i-text-btn">
+                        <div class="cb-i-t-btnone text-center">
+                            <div class="btnone-plus">
+                                <i class="fas fa-user-plus"></i>
+                            </div>
+                            <h3>加為好友</h3>
+                        </div>
+                        <div class="cb-i-t-btntwo text-center">
+                            <div class="btntwo-report">
+                                <i class="fas fa-exclamation-triangle"></i>
+                            </div>
+                            <h3>檢舉</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <hr />
+            <div class="c-b-input-people">
+                <h3>與OOO開始聊天吧!</h3>
+            </div>
+            <div class="overflow-auto c-b-input-text">
+
+                <button onclick="ShowLeaveModal()" class="btn btn-primary">別人離開聊天室Modal</button>
+            </div>
+        </div>
+    </div>
+</section>
+
+<footer class="container-fluid containerfooter chart-footer">
+    <div class="row">
+        <div class="col chart-footer-input">
+            <div class="c-f-input-img">
+                <img src="~/img/StoryRoom_UserText/girl001 .jpg" />
+            </div>
+            <div class="c-f-input-text">
+                <input type="text" placeholder="請輸入想和對方說的話..."/>
+            </div>
+            <div class="c-f-input-send">
+                <i class="fas fa-paper-plane"></i>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<div id="chartModal" class="modal leaveroom-modal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content leaveRoom-content">
+            <div class="modal-body leaveRoom-body">
+                <p>確定要離開聊天室嗎?</p>
+            </div>
+            <div class="modal-footer leave-footer">
+                <div class="leave-footer-btnone">
+                    <p>離開</p>
+                </div>
+                <div class="leave-footer-btntwo" data-dismiss="modal">
+                    <p>留下聊聊</p>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="outherOneLeave" class="modal outherOneLeave-modal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content outherOneLeave-content">
+            <div class="modal-body outherOneLeave-body">
+                <p>對方已離開聊天室</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section topCSS {
+    <link href="~/css/ChartRoom/StyleSheet_ChartRoom.css" rel="stylesheet" />
+    <link href="~/css/InputFooter/StyleSheet_footer.css" rel="stylesheet" />
+    <link href="~/css/StoryRoom/StyleSheet_UserText.css" rel="stylesheet" />
+    <link href="~/css/StoryRoom/StyleSheet_UserTextRight.css" rel="stylesheet" />
+    <link href="~/css/ChartRoom/StyleSheet_LeaveRoomModal.css" rel="stylesheet" />
+    <link href="~/css/ChartRoom/StyleSheet_OutherLeaveModal.css" rel="stylesheet" />
+    <link href="~/css/StoryRoom/StyleSheet_Choose.css" rel="stylesheet" />
+}
+
+@section endJs {
+    <script src="~/js/ChatRoom/StoryRoom_UserText.js"></script>
+    <script src="~/js/ChartRoom/ChartRoom_LeaveRoomModal.js"></script>
+}

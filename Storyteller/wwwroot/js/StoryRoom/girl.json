@@ -1,0 +1,78 @@
+{
+  "id": 2,
+  "roles": "girl",
+  "mainText": "一天，外面下著滂沱大雨",
+  "section": [
+    {
+      "sectionIndex": 0,
+      "conversation": "一天，外面下著滂沱大雨",
+      "CGImg": "/img/123.jpg",
+      "script": "看見前面小屋，趕緊跑上前去敲了敲門...",
+      "event": "wait",
+      "choose": false,
+      "issue": "",
+      "chooseForTrue": {
+        "inputFlag": false,
+        "inputText": "\"conversation\"",
+        "goToSectionIndex": 0
+      },
+      "chooseForFalse": {
+        "inputFlag": false,
+        "inputText": "\"conversation\"",
+        "goToSectionIndex": 0
+      }
+    },
+
+    {
+      "sectionIndex": 1,
+      "conversation": "門打開了，開門的男子說\"conversation\"",
+      "CGImg": "###",
+      "script": "男子邀請進屋內躲雨",
+      "event": "choose",
+      "choose": true,
+      "issue": "是否進屋?",
+      "chooseForTrue": {
+        "inputFlag": true,
+        "inputText": "\"conversation\"",
+        "goToSectionIndex": {
+          "id": 1,
+          "sectionIndex": 1
+        }
+      },
+      "chooseForFalse": {
+        "inputFlag": true,
+        "inputText": "\"conversation\"",
+        "goToSectionIndex": {
+          "id": 1,
+          "sectionIndex": 2
+        }
+      }
+    },
+
+    {
+      "sectionIndex": 2,
+      "conversation": "...",
+      "CGImg": "###",
+      "script": "沒人應門...",
+      "event": "choose",
+      "choose": true,
+      "issue": "是再次敲門?",
+      "chooseForTrue": {
+        "inputFlag": true,
+        "inputText": "看著屋外越下越大雨，急著喊道\"conversation\"",
+        "goToSectionIndex": {
+          "id": 1,
+          "sectionIndex": 1
+        }
+      },
+      "chooseForFalse": {
+        "inputFlag": false,
+        "inputText": "\"conversation\"",
+        "goToSectionIndex": {
+          "id": 1,
+          "sectionIndex": 2
+        }
+      }
+    }
+  ]
+}

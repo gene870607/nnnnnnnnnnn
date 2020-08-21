@@ -1,0 +1,76 @@
+﻿
+<partial name="_HearderPartial" />
+
+
+<section class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="CGImg">
+                <div class="CGModelUserLeft">
+                </div>
+                <img class="d-block w-100" v-bind:src="items.CG_img" />
+                <div class="CGModelUserRight">
+                </div>
+                <div class="AddFriend">
+                    。。。
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row GamePadding">
+        <div class="GameText">
+            <div class="GameTextTitle">
+                <h1>支線結局名稱</h1>
+            </div>
+            <div class="GameTextTag">
+                <p>38%的人答成此結局</p>
+            </div>
+            <div class="GameTextContent">
+                <p>
+                    我是結尾劇情內容我是結尾劇情內容我是結尾劇情內容
+                    我是結尾劇情內容我是結尾劇情內容我是結尾劇情內容
+                    我是結尾劇情內容我是結尾劇情內容我是結尾劇情內容
+                    我是結尾劇情內容我是結尾劇情內容我是結尾劇情內容
+                    我是結尾劇情內容我是結尾劇情內容我是結尾劇情內容
+                    我是結尾劇情內容我是結尾劇情內容我是結尾劇情內容
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            <partial name="_AuthorModel" />
+        </div>
+    </div>
+
+    <div class="row GameButtonJustify">
+        <div class="GameButton">
+            <a href="#">
+                <div class="GameBtn">
+                    <p>離開</p>
+                </div>
+            </a>
+
+            <a href="#">
+                <div class="GameBtn">
+                    <p>繼續聊聊</p>
+                </div>
+            </a>
+        </div>
+    </div>
+</section>
+
+
+<partial name="_InputFooterPartial" />
+
+
+@section topCSS
+{
+    <link href="~/css/InputFooter/StyleSheet_footer.css" rel="stylesheet" />
+    <link href="~/css/Hearder/StyleSheet_hearder.css" rel="stylesheet" />
+    <link href="~/css/StoryRoomCG/StoryCGModle.css" rel="stylesheet" />
+    <link href="~/css/StoryRoomCG/AuthorModel.css" rel="stylesheet" />
+    <link href="~/css/EndStoryRoom/EndStoryRoom.css" rel="stylesheet" />
+}

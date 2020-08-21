@@ -1,0 +1,931 @@
+﻿
+<audio controls="controls" autoplay loop hidden>
+    <source src="~/audio/here1.mp3" type="audio/mpeg" />
+</audio>
+
+<header class="container-fluid containerheader">
+    <div class="row">
+        <div class="col-md-12 herderBox">
+            <div id="Go_Back" class="btn-left">
+                <i class="fas fa-angle-left"></i>
+            </div>
+            <div id="Title_Name" class="txt-title">{{items.title}}</div>
+            <div class="btn-right">
+                <i class="fas fa-cog"></i>
+            </div>
+        </div>
+    </div>
+</header>
+<section class="container" id="storyArea">
+    <div class="row flex-column">
+        <div class="col">
+            <span class="badge badge-danger">房號：</span>
+            <span class="badge badge-info" id="groupId">@ViewBag.test</span>
+        </div>
+
+        <div class="col body-warp">
+            <div class="pic-cg">
+                <partial name="_CGModel" />
+            </div>
+        </div>
+    </div>
+
+    <div class="row flex-column" id="history">
+        <div class="col text-center" id="msgDiv">
+            @*故事+對話區*@
+        </div>
+    </div>
+
+    <div id="inputArea" style="display:none;" class="row flex-column">
+        <div class="col text-option text-center">
+            <p>{{combination}}</p>
+        </div>
+    </div>
+    <div v-if="items.choose" class="row flex-column story-area">
+        <div class="col">
+            <div id="section" class="s-area-title">
+                <div class="story-choose">
+                    <div class="story-choose-input">
+                        <div class="story-choose-border">
+                            <div class="s-choose-title">
+                                <div class="s-c-title-img">
+                                    <svg class="s-c-c-cricle-mysvg" width="55" height="55">
+                                        <circle id="circle" r="20" cy="25.5" cx="25.5" stroke-width="7" stroke="var(--mainColor)"
+                                                fill="none" />
+                                    </svg>
+                                </div>
+                                <div class="s-c-title-text">
+                                    <p>{{items.issue}}</p>
+                                    <h3>你的選擇將影響後續事件發展...</h3>
+                                </div>
+                            </div>
+                            <div class="s-choose-btn">
+                                <div class="s-c-btn-yes" @@click="ChooseEvent(true)">
+                                    <div class="s-c-b-yes-img">
+                                        <img src="~/img/StoryRoom_Choose/3340487-607d8b.png" />
+                                    </div>
+                                    <div class="s-c-b-yes-text">
+                                        <h3>{{items.chooseForTrue.optionDesc}}</h3>
+                                    </div>
+                                </div>
+                                <div class="s-c-btn-no" @@click="ChooseEvent(false)">
+                                    <div class="s-c-b-no-img">
+                                        <img src="~/img/StoryRoom_Choose/3340487-607d8b.png" />
+                                    </div>
+                                    <div class="s-c-b-no-text">
+                                        <h3>{{items.chooseForFalse.optionDesc}}</h3>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</section>
+<section class="container" id="eventWarp">
+    <div class="row">
+        <div class="stroke"></div>
+    </div>
+</section>
+<div id="inputTextArea" style="display:none;">
+    <partial name="_InputFooterPartial" />
+</div>
+@*這裡是遊戲玩玩的Modal部分*@
+
+<div id="myModal" class="modal" tabindex="-1" role="dialog" style="background:rgba(0,0,0,.6)">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content story-end-content" id="endVm">
+            <div class="modal-header se-content-header">
+                <h5 class="modal-title">獲得結局</h5>
+            </div>
+            <div class="modal-body se-content-body">
+                <div class="se-c-body-img">
+                    <img src="~/img/StoryRoom_Modal/20170531182346_4rmhf.thumb.700_0.jpg" />
+                    <div class="se-c-body-texttitle text-center">
+                        <h3>{{items.Name}}</h3>
+                    </div>
+                    <div class="se-c-body-textbody text-center">
+                        <h5>達成結局</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer se-content-footer">
+                <a class="btn" @@click="GetStory">查看故事結局</a>
+                <a class="btn" asp-controller="ChatRoom" asp-action="ChartRoom"   asp-route-id="@ViewBag.test">繼續聊聊</a>
+                <div class="se-c-footer-imgone">
+                    <div class="se-c-f-imgone-img">
+                        <img src="https://i.imgur.com/gReCmaF.png" class="h-100" />
+                    </div>
+                </div>
+                <div class="se-c-footer-imgtwo">
+                    <div class="se-c-f-imgtwo-img">
+                        <img src="https://i.imgur.com/q67z7jJ.jpg" class="h-100" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section topCSS
+{
+    <link href="~/css/InputFooter/StyleSheet_footer.css" rel="stylesheet" />
+    <link href="~/css/Hearder/StyleSheet_hearder.css" rel="stylesheet" />
+    <link href="~/css/StoryRoom/StyleSheet_StoryRoom.css" rel="stylesheet">
+    <link href="~/css/StoryRoomCG/StoryCGModle.css" rel="stylesheet" />
+    <link href="~/css/StoryRoomCG/AuthorModel.css" rel="stylesheet" />
+    <link href="~/css/RolesPhoto/StyleSheet_rolesBig.css" rel="stylesheet" />
+    <link href="~/css/StoryRoom/StyleSheet_Reciprocal.css" rel="stylesheet" />
+    <link href="~/css/StoryRoom/StyleSheet_Modal.css" rel="stylesheet" />
+    <link href="~/css/StoryRoom/StyleSheet_Choose.css" rel="stylesheet" />
+    <link href="~/css/StoryRoom/StyleSheet_BorderReciprocal.css" rel="stylesheet" />
+}
+
+@section endJS
+{
+    <script src="~/js/signalr/dist/browser/signalr.js"></script>
+    <script>
+        var c_index = 0;
+        var connection;
+        var vm, inputVm, endVm, hearderVm;
+        var role,scriptName;
+        var sectionData;
+        var sectionIndex = 0;
+        var groupId;
+        var otherUser = [];
+        var historySection = [];
+        var IsClickLike = false;
+
+        $(document).ready(function () {
+            groupId = $('#groupId').text();
+
+            @*載入角色選劇本，生成對應html區塊*@
+            role = localStorage.getItem('data');
+            scriptName = localStorage.getItem(role);
+            CreateScriptArea(role);
+
+
+            InputCoversation(GetSectionIndex(0));//載入起始對話
+            InputScript(GetSectionIndex(0));//載入起始劇情
+
+            @*連線開始*@
+            connection = new signalR.HubConnectionBuilder().withUrl("/RoomHub").build();
+            connection.start().then(function () {
+                console.log('連線成功');
+                connection.invoke("AddToGroup", groupId).catch(function (err) {
+                    return console.error(err.toString());
+                });
+            });
+
+            connection.on("Send", function (logMessage) {
+                console.log(logMessage);
+            });
+
+
+
+            // 群組訊息接收事件
+            connection.on("ReceiveGroupMessage", async function (user, message, rolesImg, goToSectionIndex) {
+                if (IsCurrentUser(user)) {
+                    UserTextRight(message, rolesImg, user);
+                } else {
+                    InputCoversation(GetSectionIndex(goToSectionIndex));
+                    UserText(message, rolesImg, user);
+                }
+            });
+
+            connection.on("GoToNext", function (id, index, user) {
+                if (!IsCurrentUser(user)) {
+                    InputScript(GetSectionIndex(index));
+                    vm.$data.items = sectionData.section[GetSectionIndex(index)];
+                }
+                $('#history').scrollTop(9999);
+            });
+
+            connection.on("GoEnd", function (id, index ) {
+                InputScript(GetSectionIndex(index));
+                vm.$data.items = sectionData.section[GetSectionIndex(index)];
+                setTimeout(function () {
+                    $('#myModal').show();
+                    $('#eventWarp').hide();
+                }, 8000);
+                $('#history').scrollTop(9999);
+            });
+
+            @*connection.on("Leave", function (connectionId) {
+
+                alert(`${connectionId}玩家離開連線`);
+            });*@
+            connection.on("BeLiked", function (index, user,Islike) {
+                if (!IsCurrentUser(user)) {
+                    document.querySelectorAll('.belikedBg').forEach((item) => {
+                        if (item.getAttribute('value') == index && Islike) {
+
+                            item.setAttribute("style", "background : red")
+                        } else {
+
+                            item.setAttribute("style", "background : var(--mainColor)")
+                        }
+                    });
+                }
+            });
+
+            @*綁定資料*@
+            Binding();
+            if (sectionData.section[0].choose) {
+                $('#eventWarp').hide();
+            }
+
+        });
+
+        function Binding() {
+            vm = new Vue({
+                el: '#storyArea',
+                data: { items: sectionData.section[GetSectionIndex(0)] },
+                methods: {
+                    ChooseEvent: function (boolean) {
+                        @*location.href = "#inputTextArea";*@
+                        $('#inputArea').show();
+                        $('#inputTextArea').show();
+                        vm.$data.items.event = boolean;
+                        if (boolean) {
+                            $('.s-c-btn-yes').eq(0).css({ "box-shadow": "none", "border": "2px inset #CEADC2", "background-color": "#CEADC2" });
+                            $('.s-c-b-yes-img').eq(0).children('img').css({ "transform": "rotate(-30deg)", "transition-duration": ".3s" });
+                            $('.s-c-b-yes-text').eq(0).children('h3').css({ "color": "white" });
+
+                            $('.s-c-btn-no').eq(0).css({ "box-shadow": "5px 2px 2px rgba(0, 0, 0, 0.25)", "border": "2px solid #CEADC2", "background-color": "white" });
+                            $('.s-c-b-no-img').eq(0).children('img').css({ "transform": "none", "transition-duration": "none" });
+                            $('.s-c-b-no-text').eq(0).children('h3').css({ "color": "#6ECACA" });
+
+                        } else {
+                            $('.s-c-btn-yes').eq(0).css({ "box-shadow": "5px 2px 2px rgba(0, 0, 0, 0.25)", "border": "2px solid #CEADC2", "background-color": "white" });
+                            $('.s-c-b-yes-img').eq(0).children('img').css({ "transform": "none", "transition-duration": "none" });
+                            $('.s-c-b-yes-text').eq(0).children('h3').css({ "color": "#6ECACA" });
+
+
+                            $('.s-c-btn-no').eq(0).css({ "box-shadow": "none", "border": "2px inset #CEADC2", "background-color": "#CEADC2" });
+                            $('.s-c-b-no-img').eq(0).children('img').css({ "transform": "rotate(-30deg)", "transition-duration": ".3s" });
+                            $('.s-c-b-no-text').eq(0).children('h3').css({ "color": "white" });
+                        }
+                        $("html").scrollTop(999999);
+                    }
+                },
+                computed: {
+                    combination() {
+                        if (this.items.event) {
+                            return this.items.chooseForTrue.optionDesc + this.items.chooseForTrue.input
+                        } else {
+                            return this.items.chooseForFalse.optionDesc + this.items.chooseForTrue.input
+                        }
+                    }
+                },
+                watch: {
+                    'items.choose' : function(newVal, oldVal) {
+                        if (!newVal) {
+
+                            $('#eventWarp').show();
+                        } else {
+
+                            $('#eventWarp').hide();
+                        }
+                    }
+                }
+
+            });
+
+        
+            inputVm = new Vue({
+                el: '#inputFooter',
+                data: { items: sectionData },
+                methods: {
+                    ChooseResul: function () {
+                        UpdateCoversation();
+                        let user = $('#pic-roles').attr('value');
+                        let message = $("#msg").val();
+                        $("#msg").val('');
+
+                        let goToSectionIndex, id;
+                        if (vm.$data.items.event) {
+                            id = vm.$data.items.chooseForTrue.goToSectionIndex.id;
+                            goToSectionIndex = vm.$data.items.chooseForTrue.goToSectionIndex.sectionIndex;
+                            console.log(`劇本編號${id} + 劇情章節${goToSectionIndex}`);
+                            @* this.items.choose = false;*@
+                        } else {
+                            id = vm.$data.items.chooseForFalse.goToSectionIndex.id;
+                            goToSectionIndex = vm.$data.items.chooseForFalse.goToSectionIndex.sectionIndex;
+                            console.log(`劇本編號${id} + 劇情章節${goToSectionIndex}`);
+                            @* this.items.choose = false;*@
+                        }
+                        vm.$data.items.choose = false;
+
+                        connection.invoke("SendMessageInGames", groupId, user, message, sectionData.rolesImg, goToSectionIndex).catch(function (err) {
+                            return console.error(err.toString());
+                        });
+                        GetResultInfo(groupId, id, goToSectionIndex, user);
+
+                    }
+                }//methods end
+            });
+
+            endVm = new Vue({
+                el: '#endVm',
+                data: { items: { "Name": scriptName}},
+                methods:{
+                    GetStory : function(){
+                        let ddd ='';
+                        document.querySelectorAll('#msgDiv p').forEach((item) => { ddd = ddd + item.innerText + "\n" ;});
+                        alert(ddd);
+                    }
+                }
+            });
+
+            hearderVm = new Vue({
+                el: '#Title_Name',
+                data: { items: { "title": scriptName}}
+            })
+        }
+
+
+
+        function GetResultInfo(groupId, id, goToSectionIndex, user) {
+
+            @* 對方轉換章節 *@
+            connection.invoke("PassResult", groupId, id, goToSectionIndex, user).catch(function (err) {
+                return console.error(err.toString());
+            });
+            @* 按下傳送訊息的按鈕後改變畫面 *@
+            console.log('btu click');
+            $('#mainArea').show();
+            $('#inputArea').hide();//動態顯示
+            $('#inputTextArea').hide();
+        }
+
+
+
+        function CreateScriptArea(role) {
+            if (scriptBoy.roles == role) {
+                sectionData = scriptBoy;
+            } else {
+                sectionData = scriptGirl;
+            }
+        }
+
+        function GetSectionIndex(inputNo) {
+
+            return sectionData.section.findIndex((item) => item.sectionIndex == inputNo);
+        }
+
+        async function UserTextRight(msg, img, user) {
+            console.log('begin user text right');
+                $("#msgDiv").append(
+                    `<div class="user-text-right">
+                        <span class="badge rolesName">${user}</span>
+                        <p>${msg}</p>
+                        <div class="imguser">
+                            <img src="${img}" class="b-block h-100">
+                        </div>
+                        <div class="beliked">
+                            <div class="belikedBg" value="${c_index}">
+                                <i class="fa fa-heart-o" aria-hidden="true"></i>
+                            </div>
+                        </div>
+                    </div>`);
+            c_index++;
+        }
+
+        async function UserText(msg, img, user) {
+            console.log('begin user text');
+                $("#msgDiv").append(
+                    `<div class="user-text-left">
+                         <span class="badge rolesName">${user}</span>
+                        <div class="imguser">
+                            <img src="${img}" class="b-block h-100">
+                        </div>
+                        <p>${msg}</p>
+                        <div class="like">
+                            <div class="likeBg" value="${c_index}">
+                                <i class="fa fa-heart-o" aria-hidden="true"></i>
+                            </div>
+                        </div>
+                    </div>`);
+            c_index++
+
+            document.querySelectorAll('.likeBg').forEach((item) => {
+                item.addEventListener('click', ClickLike);
+            })
+        }
+
+        function ClickLike(e) {
+           
+            IsClickLike = !IsClickLike;
+            if (IsClickLike) {
+                this.setAttribute("style", "background : red");
+                let textIndex = this.getAttribute('value');
+                connection.invoke("Like", textIndex, groupId, role, IsClickLike).catch(function (err) {
+                    return console.error(err.toString());
+                });
+            } else {
+                this.setAttribute("style", "background : var(--bgGray);");
+                let textIndex = this.getAttribute('value');
+                connection.invoke("Like", textIndex, groupId, role, IsClickLike).catch(function (err) {
+                    return console.error(err.toString());
+                });
+            }
+        }
+        
+
+         function InputCoversation(index) {
+            let conversation = sectionData.section[index].conversation;
+            $('#msgDiv').append(`<p>${conversation}</p>`);
+
+        }
+         function InputScript(index) {
+            let script = sectionData.section[index].script;
+                $('#msgDiv').append(`<p>${script}</p>`)
+        }
+
+        function UpdateCoversation() {
+            let optionDesc;
+            if (vm.$data.items.event) {
+                optionDesc = vm.$data.items.chooseForTrue.optionDesc;
+            } else {
+                optionDesc = vm.$data.items.chooseForFalse.optionDesc;
+            }
+            $('#msgDiv').append(`<p>${optionDesc}</p>`);
+        }
+
+        function IsCurrentUser(user) {
+            let currentUser = $('#pic-roles').attr('value');
+            if (currentUser == user) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+        
+
+        //#region
+        //物件(Object)：以 { } (大括號)作為開始與結束，每個名稱或是值之間使用，(逗號) 隔開。
+        //陣列(Array)：一個陣列是一個值(Value)的集合，以 [ ] (中括號) 作為開始與結束，值之間使用，(逗號) 隔開。
+        var scriptBoy = {
+            "Id": 1,
+            "roles": "秋月孝雄",
+            "rolesImg": "https://i.imgur.com/gReCmaF.png",
+            "mainText": "言葉之庭",
+            "section": [
+                {
+                    "sectionIndex": 0,
+                    "conversation": "五月的滂沱大雨筆直落下，你看見公園內有個涼亭",
+                    "CGImg": "/img/StoryImg/boy1.jpg",
+                    "script": "涼亭裡坐著一位看著小說喝著酒的女孩，你正猶豫要不要進去避雨",
+                    "choose": false,
+                    "issue": "",
+                    "event": true,
+                    "chooseForTrue": {
+                        "optionDesc": "",
+                        "inputFlag": false,
+                        "inputText": "",
+                        "input": "",
+                        "goToSectionIndex": {
+                            "id": 2,
+                            "sectionIndex": 1
+                        }
+                    },
+                    "chooseForFalse": {
+                        "optionDesc": "",
+                        "inputFlag": false,
+                        "inputText": "",
+                        "input": "",
+                        "goToSectionIndex": {
+                            "id": 2,
+                            "sectionIndex": 2
+                        }
+                    }
+                },
+                {
+                    "sectionIndex": 1,
+                    "conversation": "女孩禮貌地起身讓位給你並對你說：",
+                    "CGImg": "/img/StoryImg/d2083162.jpg",
+                    "script": "聽見問好後，抬頭看著女孩",
+                    "choose": true,
+                    "issue": "是否進入涼亭避雨？",
+                    "event": true,
+                    "chooseForTrue": {
+                        "optionDesc": "帶著愉快的心情進入涼亭並問候：",
+                        "inputFlag": true,
+                        "inputText": "",
+                        "input": "",
+                        "goToSectionIndex": {
+                            "id": 2,
+                            "sectionIndex": 1
+                        }
+                    },
+                    "chooseForFalse": {
+                        "optionDesc": "面有難色進入並說道：",
+                        "inputFlag": true,
+                        "inputText": "",
+                        "input": "...",
+                        "goToSectionIndex": {
+                            "id": 2,
+                            "sectionIndex": 2
+                        }
+                    }
+                },
+                {
+                    "sectionIndex": 2,
+                    "conversation": "雖然不情願，但女孩還是讓了位給你",
+                    "CGImg": "/img/StoryImg/f_24481127_1.png",
+                    "script": "你傻眼並抬頭看著女孩",
+                    "choose": true,
+                    "issue": "是否進入涼亭避雨？",
+                    "event": true,
+                    "chooseForTrue": {
+                        "optionDesc": "帶著愉快的心情進入涼亭並問候：",
+                        "inputFlag": true,
+                        "inputText": "",
+                        "input": "",
+                        "goToSectionIndex": {
+                            "id": 2,
+                            "sectionIndex": 1
+                        }
+                    },
+                    "chooseForFalse": {
+                        "optionDesc": "面有難色進入並說道：",
+                        "inputFlag": true,
+                        "inputText": "",
+                        "input": "",
+                        "goToSectionIndex": {
+                            "id": 2,
+                            "sectionIndex": 2
+                        }
+                    }
+                },
+                {
+                    "sectionIndex": 3,
+                    "conversation": "你進入涼亭坐下來畫畫，被女孩看見，女孩好奇的問道：",
+                    "CGImg": "/img/StoryImg/73246_55.jpg",
+                    "script": "停下筆來，抬頭看著女孩",
+                    "choose": true,
+                    "issue": "是否回應？",
+                    "event": true,
+                    "chooseForTrue": {
+                        "optionDesc": "我把手裡的畫，給他看，並說：",
+                        "inputFlag": true,
+                        "inputText": "",
+                        "input": "",
+                        "goToSectionIndex": {
+                            "id": 2,
+                            "sectionIndex": 3
+                        }
+                    },
+                    "chooseForFalse": {
+                        "optionDesc": "想看可以，但要有代價妳懂的^_^",
+                        "inputFlag": true,
+                        "inputText": "",
+                        "input": "",
+                        "goToSectionIndex": {
+                            "id": 2,
+                            "sectionIndex": 4
+                        }
+                    }
+                },
+                {
+                    "sectionIndex": 4,
+                    "conversation": "你進入涼亭坐下來畫畫，被女孩看見，女孩雖然看到你在裝逼，但他不理你，你也沒辦法",
+                    "CGImg": "/img/StoryImg/73246_55.jpg",
+                    "script": "你覺得這曠世巨作不被看到太可惜，於是你對女孩：",
+                    "choose": true,
+                    "issue": "做出甚麼動作？",
+                    "event": true,
+                    "chooseForTrue": {
+                        "optionDesc": "我把手裡的畫，給他看，並說：",
+                        "inputFlag": true,
+                        "inputText": "",
+                        "input": "",
+                        "goToSectionIndex": {
+                            "id": 2,
+                            "sectionIndex": 3
+                        }
+                    },
+                    "chooseForFalse": {
+                        "optionDesc": "想看可以，但要有代價妳懂的^_^",
+                        "inputFlag": true,
+                        "inputText": "",
+                        "input": "",
+                        "goToSectionIndex": {
+                            "id": 2,
+                            "sectionIndex": 4
+                        }
+                    }
+                },
+                {
+                    "sectionIndex": 5,
+                    "conversation": "你的東西不小心掉了，女孩幫你撿起掉落物品，你很感謝",
+                    "CGImg": "/img/StoryImg/73246_55.jpg",
+                    "script": "雨停了，女孩作勢要離開",
+                    "choose": true,
+                    "issue": "起身回應？",
+                    "event": true,
+                    "chooseForTrue": {
+                        "optionDesc": "留住她",
+                        "inputFlag": true,
+                        "inputText": "『雪野，希望還能見到妳』",
+                        "input": "",
+                        "goToSectionIndex": {
+                            "id": 2,
+                            "sectionIndex": 5
+                        }
+                    },
+                    "chooseForFalse": {
+                        "optionDesc": "叫住女孩並提醒她垃圾自己處理",
+                        "inputFlag": true,
+                        "inputText": "",
+                        "input": "",
+                        "goToSectionIndex": {
+                            "id": 2,
+                            "sectionIndex": 99
+                        }
+                    }
+                },
+                {
+                    "sectionIndex": 6,
+                    "conversation": "你的十元不小心掉了，女孩默默踩在腳下並直接把你的十元幹走了",
+                    "CGImg": "/img/StoryImg/73246_55.jpg",
+                    "script": "雨停了，女孩作勢要離開",
+                    "choose": true,
+                    "issue": "起身回應？",
+                    "event": true,
+                    "chooseForTrue": {
+                        "optionDesc": "留住她並說：",
+                        "inputFlag": true,
+                        "inputText": "『雪野，希望還能見到妳』",
+                        "input": "",
+                        "goToSectionIndex": {
+                            "id": 2,
+                            "sectionIndex": 99
+                        }
+                    },
+                    "chooseForFalse": {
+                        "optionDesc": "雖然機會渺茫但你試圖挽回女孩腳下的十元並說：",
+                        "inputFlag": true,
+                        "inputText": "(幹那是我的十塊)",
+                        "input": "",
+                        "goToSectionIndex": {
+                            "id": 2,
+                            "sectionIndex": 99
+                        }
+                    }
+                },
+                {
+                    "sectionIndex": 99,
+                    "conversation": "女孩對你揮手說",
+                    "CGImg": "/img/StoryImg/73246_55.jpg",
+                    "script": "不久，雨停了...女孩起身準備離開，此時吹起了一陣風，彷彿在接續他們的對話",
+                    "choose": false,
+                    "issue": "回應？",
+                    "event": true,
+                    "chooseForTrue": {
+                        "optionDesc": "留住她並說：",
+                        "inputFlag": true,
+                        "inputText": "『雪野，希望還能見到妳』",
+                        "input": "",
+                        "goToSectionIndex": {
+                            "id": 2,
+                            "sectionIndex": 99
+                        }
+                    },
+                    "chooseForFalse": {
+                        "optionDesc": "什麼也沒說",
+                        "inputFlag": true,
+                        "inputText": "(幹那是我的十塊)",
+                        "input": "",
+                        "goToSectionIndex": {
+                            "id": 2,
+                            "sectionIndex": 99
+                        }
+                    }
+                }
+            ]
+        };
+
+        var scriptGirl = {
+            "id": 2,
+            "roles": "雪野百香里",
+            "rolesImg": "https://i.imgur.com/q67z7jJ.jpg",
+            "mainText": "言葉之庭",
+            "section": [
+                {
+                    "sectionIndex": 0,
+                    "conversation": "五月的滂沱大雨筆直落下，妳在公園涼亭裡避雨",
+                    "CGImg": "/img/StoryImg/giardinoparole.png",
+                    "script": "涼亭外來了個年輕的小伙子，看起來要走進來避雨",
+                    "choose": true,
+                    "issue": "是否讓個位子給他？",
+                    "event": true,
+                    "chooseForTrue": {
+                        "optionDesc": "起身走到涼亭的裡邊，挪出空位給少年並對他說：",
+                        "inputFlag": true,
+                        "inputText": "***",
+                        "input": "",
+                        "goToSectionIndex": {
+                            "id": 1,
+                            "sectionIndex": 1
+                        }
+                    },
+                    "chooseForFalse": {
+                        "optionDesc": "順勢把腳跨在椅子上佔滿空間，對著他說：",
+                        "inputFlag": true,
+                        "inputText": "",
+                        "input": "",
+                        "goToSectionIndex": {
+                            "id": 1,
+                            "sectionIndex": 2
+                        }
+                    }
+                },
+                {
+                    "sectionIndex": 1,
+                    "conversation": "男孩帶著朝氣說：",
+                    "CGImg": "/img/StoryImg/2020170422.png",
+                    "script": "說完後就地坐在涼亭的一旁。看著男孩從包包裡拿出筆記本。四周可聽見歡悅鳴啼的清脆鳥囀、伴著敲打屋頂的雨聲和屋簷上滑落的雨滴，以及鉛筆在筆記本上滑過的輕柔沙沙聲，少年從剛才就在筆記本上寫寫畫畫，沒有攤開教科書，大概不是在唸書吧？",
+                    "choose": true,
+                    "issue": "問問看畫什麼？",
+                    "event": true,
+                    "chooseForTrue": {
+                        "optionDesc": "我來問問：",
+                        "inputFlag": true,
+                        "inputText": "",
+                        "input": "",
+                        "goToSectionIndex": {
+                            "id": 1,
+                            "sectionIndex": 3
+                        }
+                    },
+                    "chooseForFalse": {
+                        "optionDesc": "臭宅男在那裝逼甚麼",
+                        "inputFlag": false,
+                        "inputText": "",
+                        "input": "",
+                        "goToSectionIndex": {
+                            "id": 1,
+                            "sectionIndex": 4
+                        }
+                    }
+                },
+                {
+                    "sectionIndex": 2,
+                    "conversation": "男子面有難色進入涼亭",
+                    "CGImg": "#",
+                    "script": "說完後就地坐在涼亭的一旁。看著男孩從包包裡拿出筆記本。四周可聽見歡悅鳴啼的清脆鳥囀、伴著敲打屋頂的雨聲和屋簷上滑落的雨滴，以及鉛筆在筆記本上滑過的輕柔沙沙聲，少年從剛才就在筆記本上寫寫畫畫，沒有攤開教科書，大概不是在唸書吧？",
+                    "choose": true,
+                    "issue": "問問看畫什麼？",
+                    "event": true,
+                    "chooseForTrue": {
+                        "optionDesc": "我來問問：",
+                        "inputFlag": true,
+                        "inputText": "",
+                        "input": "",
+                        "goToSectionIndex": {
+                            "id": 1,
+                            "sectionIndex": 3
+                        }
+                    },
+                    "chooseForFalse": {
+                        "optionDesc": "臭宅男在那裝逼甚麼",
+                        "inputFlag": false,
+                        "inputText": "",
+                        "input": "",
+                        "goToSectionIndex": {
+                            "id": 1,
+                            "sectionIndex": 4
+                        }
+                    }
+                },
+                {
+                    "sectionIndex": 3,
+                    "conversation": "男孩解釋道，並且將手上的畫給妳看",
+                    "CGImg": "/img/StoryImg/f_24481127_1.png",
+                    "script": "突然，從男孩身上掉落某樣物品並彈到妳腳邊",
+                    "choose": true,
+                    "issue": "是否撿起並查看是甚麼東西？",
+                    "event": true,
+                    "chooseForTrue": {
+                        "optionDesc": "幫他撿起並歸還",
+                        "inputFlag": true,
+                        "inputText": "",
+                        "input": "",
+                        "goToSectionIndex": {
+                            "id": 1,
+                            "sectionIndex": 5
+                        }
+                    },
+                    "chooseForFalse": {
+                        "optionDesc": "你發現那是十塊錢就默默踩住它",
+                        "inputFlag": false,
+                        "inputText": "***",
+                        "input": "",
+                        "goToSectionIndex": {
+                            "id": 1,
+                            "sectionIndex": 6
+                        }
+                    }
+                },
+                {
+                    "sectionIndex": 4,
+                    "conversation": "男孩開始上下打量妳",
+                    "CGImg": "/img/StoryImg/f_24481127_1.png",
+                    "script": "突然，從男孩身上掉落某樣物品並彈到妳腳邊",
+                    "choose": true,
+                    "issue": "是否撿起並查看是甚麼東西？",
+                    "event": true,
+                    "chooseForTrue": {
+                        "optionDesc": "幫他撿起並歸還：",
+                        "inputFlag": true,
+                        "inputText": "",
+                        "input": "",
+                        "goToSectionIndex": {
+                            "id": 1,
+                            "sectionIndex": 5
+                        }
+                    },
+                    "chooseForFalse": {
+                        "optionDesc": "你發現那是十塊錢就默默踩住它",
+                        "inputFlag": false,
+                        "inputText": "***",
+                        "input": "",
+                        "goToSectionIndex": {
+                            "id": 1,
+                            "sectionIndex": 6
+                        }
+                    }
+                },
+                {
+                    "sectionIndex": 5,
+                    "conversation": "男孩留住了你",
+                    "CGImg": "/img/StoryImg/f_24481127_1.png",
+                    "script": "不久，雨停了...該離開了",
+                    "choose": true,
+                    "issue": "是否對男孩告別?",
+                    "event": true,
+                    "chooseForTrue": {
+                        "optionDesc": "不捨離開男孩並說：",
+                        "inputFlag": true,
+                        "inputText": "帥勾再玩一下嘛",
+                        "input": "",
+                        "goToSectionIndex": {
+                            "id": 1,
+                            "sectionIndex": 99
+                        }
+                    },
+                    "chooseForFalse": {
+                        "optionDesc": "欸欸我的LineID是...",
+                        "inputFlag": true,
+                        "inputText": "***",
+                        "input": "",
+                        "goToSectionIndex": {
+                            "id": 1,
+                            "sectionIndex": 99
+                        }
+                    }
+                },
+                {
+                    "sectionIndex": 99,
+                    "conversation": "男孩沒有留住妳，而且叫你垃圾自己丟",
+                    "CGImg": "/img/StoryImg/f_24481127_1.png",
+                    "script": "不久，雨停了...女孩起身準備離開，此時吹起了一陣風，彷彿在接續他們的對話",
+                    "choose": false,
+                    "issue": "說再見...",
+                    "event": true,
+                    "chooseForTrue": {
+                        "optionDesc": "我笑笑著揮手說：",
+                        "inputFlag": true,
+                        "inputText": "",
+                        "input": "",
+                        "goToSectionIndex": {
+                            "id": 1,
+                            "sectionIndex": 99
+                        }
+                    },
+                    "chooseForFalse": {
+                        "optionDesc": "算了",
+                        "inputFlag": false,
+                        "inputText": "***",
+                        "input": "",
+                        "goToSectionIndex": {
+                            "id": 1,
+                            "sectionIndex": 99
+                        }
+                    }
+                }
+            ]
+        };
+        //#endregion
+    </script>
+    @*<script src="~/js/ChatRoom/StoryRoom_UserText.js"></script>
+        <script src="~/js/ChatRoom/StoryRoom_Reciprocal.js"></script>
+        <script src="~/js/ChatRoom/StoryRoom_Modal.js"></script>*@
+    <script src="~/js/StoryRoom/StoryRoom_BorderReciprocal.js"></script>
+    <script src="~/js/StoryRoom/StoryRoom_beanfunSDK.js"></script>
+}

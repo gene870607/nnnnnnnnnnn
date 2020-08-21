@@ -1,0 +1,30 @@
+.herderBox {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    height: 44px;
+    background: linear-gradient(180deg, #64C6C7 0%, var(--mainColor) 100%), var(--mainColor);
+}
+
+    .herderBox .btn-left,
+    .herderBox .btn-right {
+        height: 25px;
+        width: 25px;
+        background: #fff;
+        margin-top: 10px;
+        border-radius: 50%;
+        font-size: 16px;
+        text-align: center;
+        color: #64C6C7;
+    }
+
+.herderBox .txt-title {
+  margin-top: 9px;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 28px;
+  color: #2C2C2C;
+}
+
